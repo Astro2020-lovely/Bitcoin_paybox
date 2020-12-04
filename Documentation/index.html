@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Bitcoin Payment Box - Accept Bitcoins in your website with this plugin.</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="description" content="">
+<meta name="author" content="me4onkof">
+<meta name="copyright" content="me4onkof">
+<meta name="generator" content="">
+<meta name="date" content="2017-02-14T10:03:02+00:00">
+<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+<link href="assets/css/prettify.css" rel="stylesheet">
+<link href="assets/css/default.css" rel="stylesheet">
+<!--[if lt IE 9]>
+  <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<style type="text/css">
+</style>
+</head>
+<body data-spy="scroll" id="top" data-target=".navbar-collapse">
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      <a class="navbar-brand" href="#">Bitcoin Payment Box</a> </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+                <li><a title="1. Download and extract files" href="#configurate-plugin">1. Download and extract files</a></li>
+                <li><a title="2. How to use plugin" href="#2-how-to-use-plugin">2. How to use plugin</a></li>
+                <li><a title="3. Payment verification" href="#3-payment-verification">3. Payment verification</a></li>
+              </ul>
+    </div>
+  </div>
+</div>
+<div class="container" id="rdgContainer">
+  <div id="rdgContainerHeader">
+    <div class="masthead">
+      <h1>Bitcoin Payment Box - Accept Bitcoins in your website with this plugin.</h1>
+      <p></p>
+      <div class="row">
+        <ul class="mastlist">
+          <li>Created: 02-14-2017</li>
+          <li>Latest update: 02-14-2017</li>
+          <li>By: me4onkof</li>
+          <li><a href="http://me4onkof.info/">http://me4onkof.info/</a></li>
+        </ul>
+      </div>
+      <p class="download-info">
+              </p>
+    </div>
+    <div class="jumbotron" id="intro">
+      <p class="highlight hero-unit"></p>
+    </div>
+  </div>
+    <section id="configurate-plugin">
+    <div class="page-header">
+      <h3>1. Download and extract files</h3>
+    </div>
+    <p>Download plugin from your &quot;Downloads&quot; section in your CodeCanyon account. Then extract archive. Folders <strong>assets </strong>and <strong>classes </strong>are required to plugin work without problems.</p>
+ </section>
+    <section id="2-how-to-use-plugin">
+    <div class="page-header">
+      <h3>2. How to use plugin</h3>
+    </div>
+    <p>You can see example code in file <strong>bitcoin_example.php</strong>.&nbsp;</p>
+
+<pre class="prettyprint lang-php linenums php">
+Here is sample code:
+&lt;?php
+require(&quot;config.php&quot;);
+require(&quot;classes/block_io.php&quot;);
+require(&quot;classes/gateway.php&quot;);
+
+$box = new BtcGateway();
+echo $box-&gt;create_payment_box(&quot;<strong>0.00012</strong>&quot;); // where is 0.00012 type your requested Bitcoin amount.
+?&gt;</pre>
+
+<p>&nbsp;</p>
+ </section>
+    <section id="3-payment-verification">
+    <div class="page-header">
+      <h3>3. Payment verification</h3>
+    </div>
+    <p>To verify client payment and process order you can check file <strong>bitcoin_ipn.php</strong></p>
+
+<p>If location or bitcoin_ipn.php file was renamed need to change also in assets/js/gateway.js file lines.</p>
+
+<p>&nbsp;</p>
+
+<pre class="prettyprint lang-js linenums js">
+function btc_gateway_update_status(boxID) {
+&nbsp;&nbsp; &nbsp;var payment_div = $(&quot;#PaymentStatus_&quot;+boxID);
+&nbsp;&nbsp; &nbsp;var data_url = &quot;<strong>bitcoin_ipn.php</strong>&quot;; // i mean here.
+&nbsp;&nbsp; &nbsp;$.ajax({
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;type: &quot;GET&quot;,
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;url: data_url,
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;dataType: &quot;html&quot;,
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;success: function (data) {
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;payment_div.html(data);
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
+}&nbsp; &nbsp;</pre>
+ </section>
+    <hr />
+  <footer>
+    <p>Copyright me4onkof 2017</p>
+  </footer>
+</div>
+<script>document.createElement('section');var duration='500',easing='swing';</script> 
+<script src="assets/js/cufon.js"></script> 
+<script src="assets/js/font.js"></script> 
+<script>Cufon.replace("h1, h2, h3, h4, h5, h6");</script> 
+<script src="assets/js/jquery.min.js"></script> 
+<script src="assets/js/jquery-migrate.min.js"></script> 
+<script src="assets/js/bootstrap.min.js"></script> 
+<script src="assets/js/jquery.scrollTo.js"></script> 
+<script src="assets/js/jquery.easing.js"></script> 
+<script src="assets/js/prettify.js"></script> 
+<script src="assets/js/default.js"></script>
+</body>
+</html>
